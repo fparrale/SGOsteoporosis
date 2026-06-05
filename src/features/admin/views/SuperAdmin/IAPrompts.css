@@ -1,0 +1,43 @@
+.ia-prompts { display: flex; flex-direction: column; gap: 24px; }
+.ia-prompts__header h1 { font-size: 22px; font-weight: 700; color: #0f172a; margin: 0; }
+.ia-prompts__header p { font-size: 14px; color: #64748b; margin: 4px 0 0; }
+.info-permisos { background: #ede9fe; border: 1px solid #a78bfa; border-radius: 10px; padding: 12px 16px; font-size: 13px; color: #5b21b6; display: flex; gap: 10px; align-items: flex-start; }
+.info-permisos code { background: #f1f5f9; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+.card { background: white; border-radius: 12px; border: 1px solid #e2e8f0; padding: 24px; }
+.card h2 { font-size: 16px; font-weight: 700; color: #0f172a; margin: 0 0 6px; }
+.card__desc { font-size: 13px; color: #64748b; margin-bottom: 14px; }
+.vars-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.vars-label { font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; }
+.var-chip { background: #ede9fe; color: #7c3aed; border: 1px solid #c4b5fd; border-radius: 6px; padding: 3px 10px; font-size: 12px; font-family: monospace; font-weight: 700; }
+.var-chip--clickable { cursor: pointer; transition: background 0.15s, color 0.15s; }
+.var-chip--clickable:hover { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+.textarea-prompt { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 14px; outline: none; font-family: monospace; box-sizing: border-box; min-height: 200px; resize: vertical; line-height: 1.6; transition: border-color 0.15s; }
+.textarea-prompt:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,0.1); }
+.params-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.param-group label { font-size: 13px; font-weight: 500; color: #374151; display: block; margin-bottom: 6px; }
+.param-group .form-input { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 14px; outline: none; font-family: inherit; box-sizing: border-box; }
+.param-group .form-input:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,0.1); }
+.param-hint { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+.range-input { width: 100%; accent-color: #7c3aed; }
+.prompt-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+.prompt-card-header h2 { margin: 0 0 4px; }
+.btn-preview-toggle { display: flex; align-items: center; gap: 6px; background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; border-radius: 8px; padding: 7px 14px; font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: background 0.12s; flex-shrink: 0; }
+.btn-preview-toggle:hover { background: #e2e8f0; }
+.btn-preview-toggle--active { background: #ede9fe; color: #7c3aed; border-color: #c4b5fd; }
+.card--preview { border-color: #a78bfa; background: #faf5ff; }
+.card--preview h2 { color: #7c3aed; }
+.preview-inputs { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.preview-field { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 160px; }
+.preview-field label { font-size: 12px; font-weight: 600; color: #64748b; }
+.preview-field input, .preview-field select { padding: 8px 10px; border-radius: 7px; border: 1px solid #c4b5fd; font-size: 13px; outline: none; background: white; font-family: inherit; }
+.preview-field input:focus, .preview-field select:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,0.1); }
+.preview-result { background: white; border: 1px solid #ddd6fe; border-radius: 8px; padding: 14px; }
+.preview-result__label { font-size: 11px; font-weight: 700; color: #7c3aed; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 8px; }
+.preview-result__text { font-family: monospace; font-size: 13px; color: #1e293b; white-space: pre-wrap; word-break: break-word; margin: 0; line-height: 1.6; }
+.btn-guardar-wrapper { display: flex; justify-content: flex-end; }
+.btn-save { display: flex; align-items: center; gap: 8px; color: white; border: none; border-radius: 8px; padding: 11px 22px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+.btn-save--idle { background: #7c3aed; }
+.btn-save--idle:hover { background: #6d28d9; }
+.btn-save--saved { background: #16a34a; }
+.btn-save--saving { background: #7c3aed; opacity: 0.7; }
+.btn-save:disabled { cursor: not-allowed; }

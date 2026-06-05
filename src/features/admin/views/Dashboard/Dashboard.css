@@ -1,0 +1,28 @@
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.chart-section {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.chart-inner {
+  display: flex;
+  gap: 24px;
+}
+.avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  background: #cbd5e1;
+  flex-shrink: 0;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

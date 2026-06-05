@@ -1,0 +1,127 @@
+/* ── FeedbackModal ──────────────────────────────────────────────────────── */
+.feedback-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 31, 92, 0.45);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.feedback-modal {
+  background: #fff;
+  border-radius: 22px;
+  padding: 36px 32px 28px;
+  max-width: 460px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(15, 31, 92, 0.25);
+  animation: slideUp 0.25s ease;
+  border-top: 4px solid transparent;
+}
+
+.feedback-modal--success {
+  border-top-color: #22c55e;
+}
+
+.feedback-modal--error {
+  border-top-color: #ef4444;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.feedback-modal__icon-wrapper {
+  margin-bottom: 12px;
+}
+
+.feedback-modal__icon--success {
+  color: #22c55e;
+}
+
+.feedback-modal__icon--error {
+  color: #ef4444;
+}
+
+.feedback-modal__title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.feedback-modal__points {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #22c55e;
+  background: #f0fdf4;
+  padding: 4px 16px;
+  border-radius: 99px;
+  margin-bottom: 16px;
+}
+
+.feedback-modal__correct-answer {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #dc2626;
+  background: #fef2f2;
+  padding: 8px 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.feedback-modal__text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #475569;
+  margin: 0 0 24px;
+  text-align: left;
+}
+
+.feedback-modal__btn {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Outfit", sans-serif;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  background: #3b6cf8;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(59, 108, 248, 0.25);
+}
+
+.feedback-modal__btn:hover {
+  background: #1e4fd8;
+  transform: translateY(-1px);
+}
+
+.feedback-modal__btn:active {
+  transform: translateY(0);
+}

@@ -1,0 +1,577 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @media (max-width: 600px) {
+    .cia-root {
+      padding: 20px 9px 80px;
+    }
+  }
+
+  .cia-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Page header */
+  .cia-header { margin-bottom: 28px; }
+  .cia-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f1f5c;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+  .cia-subtitle { font-size: 13.5px; color: #64748b; }
+
+  /* Layout grid */
+  .cia-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 24px;
+    align-items: start;
+  }
+  @media (max-width: 900px) { .cia-grid { grid-template-columns: 1fr; } }
+
+  .cia-left  { display: flex; flex-direction: column; gap: 20px; }
+  .cia-right { display: flex; flex-direction: column; gap: 20px; }
+
+  /* Card */
+  .cia-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 2px 8px rgba(15,31,92,.06), 0 8px 24px rgba(15,31,92,.05);
+  }
+  .cia-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .cia-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f1f5c;
+    margin-bottom: 6px;
+  }
+  .cia-card-sub {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+  .cia-divider {
+    height: 1.5px;
+    background: #e8edf5;
+    margin: 20px 0;
+  }
+
+  /* Provider list */
+  .cia-providers { display: flex; flex-direction: column; gap: 6px; }
+  .cia-provider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 15px;
+    border-radius: 12px;
+    border: 1.5px solid #f8fafc;
+    background: #f8fafc;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    user-select: none;
+  }
+  .cia-provider:hover { background: #f4f7fd; }
+  .cia-provider.selected { background: #eff4ff; border-color: #c7d8fe; }
+  .cia-provider.disabled { opacity: 0.7; cursor: not-allowed; background: #f1f5f9; }
+  .cia-provider.disabled:hover { background: #f1f5f9; }
+
+  .cia-provider-left { display: flex; align-items: center; gap: 12px; }
+  .cia-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    flex-shrink: 0;
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+  .cia-dot.on {
+    background: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34,197,94,.2);
+  }
+  .cia-provider-name { font-size: 14px; font-weight: 600; color: #1e293b; }
+  .cia-provider-model { font-size: 11.5px; color: #94a3b8; margin-top: 1px; }
+  .cia-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 11px;
+    border-radius: 99px;
+    letter-spacing: 0.02em;
+  }
+  .cia-badge-on  { background: #f0fdf4; color: #16a34a; }
+  .cia-badge-off { background: #f1f5f9; color: #94a3b8; }
+
+  .cia-use-btn {
+    padding: 4px 14px;
+    border-radius: 6px;
+    border: 1px solid #0f1f5c;
+    background: transparent;
+    color: #0f1f5c;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .cia-use-btn:hover { background: #0f1f5c; color: #fff; }
+
+  /* Prompt vars chips */
+  .cia-vars-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0 4px;
+  }
+  .cia-vars-label {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-right: 2px;
+  }
+  .cia-var-chip {
+    background: #eff6ff;
+    color: #3b6cf8;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-family: monospace;
+    user-select: all;
+  }
+
+  /* Prompt */
+  .cia-textarea {
+    width: 100%;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 14px;
+    color: #334155;
+    resize: vertical;
+    min-height: 180px;
+    outline: none;
+    background: #fafbfe;
+    line-height: 1.65;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+  }
+  .cia-textarea:focus { border-color: #3b6cf8; background: #fff; }
+  .cia-textarea[readOnly] {
+    background: transparent;
+    border-color: transparent;
+    color: #64748b;
+    cursor: default;
+    padding-left: 0; padding-right: 0;
+    min-height: auto;
+    resize: none;
+  }
+  .cia-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+    flex-shrink: 0;
+  }
+  .cia-edit-btn.edit { background: #f1f5f9; color: #475569; }
+  .cia-edit-btn.edit:hover { background: #e2e8f0; }
+  .cia-edit-btn.save { background: #0f1f5c; color: #fff; }
+  .cia-edit-btn.save:hover { background: #1a3a9c; }
+
+  /* Parameters */
+  .cia-temp-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .cia-temp-label { font-size: 14px; font-weight: 600; color: #334155; }
+  .cia-temp-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    background: #0f1f5c;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+  .cia-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 8px;
+  }
+  .cia-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: #0f1f5c;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(15,31,92,.3);
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .cia-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  .cia-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #94a3b8;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+  }
+  .cia-level-box {
+    border: 1.5px solid #e8edf5;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .cia-level-head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background: #f8fafc;
+    padding: 9px 16px;
+  }
+  .cia-level-head span {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #94a3b8;
+  }
+  .cia-level-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 13px 16px;
+    gap: 12px;
+  }
+  .cia-level-row span { font-size: 13px; color: #475569; line-height: 1.5; }
+  .cia-level-row span:first-child { font-weight: 600; color: #1e293b; }
+  .cia-param-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 12px;
+    color: #60a5fa;
+    line-height: 1.5;
+  }
+  .cia-param-note svg { width: 13px; height: 13px; flex-shrink: 0; margin-top: 1px; }
+
+  /* CSV Upload */
+  .cia-drop-zone {
+    border: 2px dashed #d1daf5;
+    border-radius: 12px;
+    padding: 32px 22px;
+    text-align: center;
+    background: #f8faff;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    margin-bottom: 12px;
+  }
+  .cia-drop-zone:hover { border-color: #3b6cf8; background: #eff4ff; }
+  .cia-drop-icon {
+    width: 40px; height: 40px;
+    margin: 0 auto 10px;
+    background: #e8edf5;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+  }
+  .cia-drop-title { font-size: 14px; font-weight: 600; color: #334155; margin-bottom: 3px; }
+  .cia-drop-hint  { font-size: 12px; color: #94a3b8; margin-bottom: 12px; }
+  .cia-select-btn {
+    background: #fff;
+    border: 1.5px solid #d1daf5;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .cia-select-btn:hover { border-color: #3b6cf8; color: #3b6cf8; background: #eff4ff; }
+  .cia-file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 14px;
+    border: 1.5px solid #e8edf5;
+    border-radius: 12px;
+    background: #fafbfe;
+  }
+  .cia-file-left { display: flex; align-items: center; gap: 10px; }
+  .cia-file-icon { color: #3b6cf8; display: flex;}
+  .cia-file-name { font-size: 13px; font-weight: 600; color: #1e293b; }
+  .cia-file-meta { font-size: 11px; color: #94a3b8; margin-top: 1px; }
+  .cia-del-btn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: background 0.15s;
+  }
+  .cia-del-btn:hover { background: #fee2e2; }
+
+  /* Pro Tip */
+  .cia-pro {
+    background: linear-gradient(135deg, #0f1f5c 0%, #1a3a9c 100%);
+    border-radius: 18px;
+    padding: 28px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .cia-pro::before {
+    content: '';
+    position: absolute;
+    right: -28px; bottom: -28px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.07);
+  }
+  .cia-pro::after {
+    content: '';
+    position: absolute;
+    right: 28px; bottom: -14px;
+    width: 55px; height: 55px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.05);
+  }
+  .cia-pro-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 10px;
+  }
+  .cia-pro-title { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+  .cia-pro-text  {
+    font-size: 13px;
+    color: rgba(255,255,255,.78);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .cia-pro-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1.5px solid rgba(255,255,255,.4);
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+  .cia-pro-link:hover { border-color: #fff; }
+  .cia-insight-btn {
+    display: block;
+    background: #fff;
+    color: #0f1f5c;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background .2s, transform .1s;
+  }
+  .cia-insight-btn:hover { background: #e8eeff; transform: translateY(-1px); }
+
+  /* ── Card modelos gratuitos ── */
+  .cia-free-card {
+    background: #fff;
+    border: 1.5px solid #e8eeff;
+    border-radius: 18px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 4px 18px rgba(99, 102, 241, 0.08), 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .cia-free-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6366f1;
+  }
+  .cia-free-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f1f5c;
+  }
+  .cia-free-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .cia-free-chip {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1.5px solid;
+  }
+  .cia-free-chip.gemini  { background: #e8f5e9; color: #2e7d32; border-color: #a5d6a7; }
+  .cia-free-chip.deepseek{ background: #e3f2fd; color: #1565c0; border-color: #90caf9; }
+  .cia-free-chip.grok    { background: #f5f5f5; color: #37474f; border-color: #b0bec5; }
+  .cia-free-text {
+    font-size: 12.5px;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+/* Action bar */
+.cia-action-bar {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff;
+  border: 1.5px solid #e8edf5;
+  border-radius: 16px;
+  padding: 14px 20px;
+  box-shadow: 0 8px 32px rgba(15,31,92,.13);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.cia-action-bar.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.cia-action-hint {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.cia-action-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.cia-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.cia-reset-btn:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+.cia-save-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  background: #0f1f5c;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cia-save-btn:hover { background: #1a3a9c; }
+
+/* Oculta iconos y apila los botones de acción en móvil */
+@media (max-width: 600px) {
+  .cia-action-bar {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    gap: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .cia-action-hint {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+  }
+  .cia-action-btns {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;  /* ← botones al mismo ancho */
+  }
+  .cia-reset-btn,
+  .cia-save-btn {
+    width: 100%;           /* ← ocupa todo el ancho */
+    font-size: 14px;
+    padding: 12px 10px;
+    text-align: center;
+    justify-content: center;
+  }
+  .cia-reset-btn svg,
+  .cia-file-icon svg,
+  .cia-save-btn svg {
+    display: none;
+  }
+}
+
+/* Fuerza tamaño fijo a todos los iconos Lucide */
+.cia-root svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  display: block;        /* ← block, no inline-block */
+}
+.cia-reset-btn svg { width: 15px; height: 15px; }
+.cia-save-btn svg  { width: 16px; height: 16px; }
+.cia-edit-btn svg  { width: 14px; height: 14px; }
+.cia-drop-icon svg  { width: 20px; height: 20px; }
+.cia-file-icon svg  { width: 15px; height: 15px; }
+.cia-del-btn svg    { width: 16px; height: 16px; }
+.cia-pro-link svg   { width: 12px; height: 12px; }

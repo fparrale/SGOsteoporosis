@@ -1,0 +1,33 @@
+/* ── LivesDisplay ───────────────────────────────────────────────────────── */
+.lives-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lives-display__label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #64748b;
+}
+
+.lives-display__hearts {
+  display: flex;
+  gap: 4px;
+}
+
+.lives-display__heart {
+  transition: all 0.3s ease;
+}
+
+.lives-display__heart--active {
+  color: #ef4444;
+  filter: drop-shadow(0 1px 3px rgba(239, 68, 68, 0.3));
+}
+
+.lives-display__heart--lost {
+  color: #e2e8f0;
+  transform: scale(0.85);
+}

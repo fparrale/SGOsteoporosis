@@ -1,0 +1,422 @@
+/* AdminLogin.css */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.admin-login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  background: linear-gradient(135deg, #0d0d2b 0%, #1a1a4e 50%, #12122e 100%);
+  padding: 1rem;
+  position: relative;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Círculos decorativos ── */
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.bg-circle--1 {
+  width: 18rem;
+  height: 18rem;
+  top: -5rem;
+  right: -5rem;
+  animation: ring-rotate 18s linear infinite;
+}
+
+.bg-circle--2 {
+  width: 10rem;
+  height: 10rem;
+  top: 30%;
+  left: -3rem;
+  animation: ring-pulse 6s ease-in-out infinite;
+}
+
+.bg-circle--3 {
+  width: 14rem;
+  height: 14rem;
+  bottom: 5%;
+  right: 8%;
+  animation: ring-rotate 24s linear infinite reverse;
+}
+
+.bg-circle--4 {
+  width: 7rem;
+  height: 7rem;
+  bottom: 20%;
+  left: 10%;
+  animation: ring-pulse 4s ease-in-out infinite 1s;
+}
+
+@keyframes ring-rotate {
+  from { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.08); }
+  to   { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes ring-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0.5; }
+  50%       { transform: scale(1.15); opacity: 1;   }
+}
+
+/* ── Glass panel ── */
+.admin-glass-panel {
+  width: 100%;
+  max-width: 25rem;
+  border-radius: 2rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: #ffffff;
+  backdrop-filter: none;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  transition: box-shadow 0.3s;
+}
+
+.admin-glass-panel.panel--success {
+  box-shadow: 0 25px 50px rgba(34, 197, 94, 0.2);
+  border-color: rgba(34, 197, 94, 0.4);
+}
+
+/* ── Header ── */
+.panel-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-shield-icon {
+  color: #1d51c2;
+  margin-bottom: 0.3rem;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.login-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-on-surface, #1a1a2e);
+  margin: 0;
+}
+
+.subtitle-container {
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-subtitle {
+  font-size: 0.875rem;
+  color: var(--color-on-surface-variant, #6b7280);
+  max-width: 90%;
+  margin: 0;
+}
+
+/* ── Form ── */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-label-container {
+  position: relative;
+  height: 1.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.form-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-on-surface-variant, #6b7280);
+}
+
+.forgot-password-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4f46e5;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.forgot-password-link--center {
+  display: block;
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Custom input ── */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f9fafb;
+  border: 1.5px solid #5180c7;
+  border-radius: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.input-wrapper:hover {
+  border-color: #4338ca;
+  background-color: #ffffff;
+}
+
+.input-wrapper:focus-within {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+  background-color: #ffffff;
+}
+
+.input-wrapper--error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.12);
+}
+
+.input-icon {
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.custom-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #111827;
+  font-size: 0.95rem;
+  width: 100%;
+  font-family: inherit;
+}
+
+.custom-input::placeholder { color: #b0b4be; }
+.custom-input:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.toggle-password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.toggle-password:hover { color: #4f46e5; }
+
+/* ── Errors ── */
+.field-error {
+  font-size: 0.78rem;
+  color: #ef4444;
+  font-weight: 500;
+  overflow: hidden;
+  display: block;
+}
+
+.api-error-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: #dc2626;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.api-error-icon { font-size: 1rem; flex-shrink: 0; }
+
+/* ── Remember me ── */
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #374151;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.remember-me input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: #4f46e5;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Access button ── */
+.access-button {
+  width: 100%;
+  background-color: #4f46e5;
+  color: white;
+  padding: 1rem 0;
+  border-radius: 1rem;
+  font-weight: 800;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.15);
+  transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  margin-top: 1rem;
+  font-family: inherit;
+  min-height: 3.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.access-button:hover:not(:disabled) {
+  background-color: #4338ca;
+  transform: scale(1.02);
+}
+
+.access-button:disabled {
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Estado verificando: fondo más suave para que el spinner no se vea raro */
+.access-button--verifying {
+  background-color: #6366f1;
+  box-shadow: none;
+}
+
+.access-button--success {
+  background-color: #22c55e !important;
+  box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.2) !important;
+}
+
+/* Contenedor del spinner + texto dentro del botón */
+.btn-verifying {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Animación de rotación para el Loader de lucide */
+.btn-spinner {
+  animation: spin 0.9s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Back divider ── */
+.back-divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 1.25rem 0 0;
+}
+
+/* ── Back link ── */
+.back-link {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.back-link span {
+  color: #6b7280;
+}
+
+.back-link a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.2rem;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
+
+/* ── Security badge ── */
+.security-badge {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  width: 235px;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  z-index: 10;
+  max-width: calc(100% - 2rem);
+}
+
+.shield-icon { color: #1d51c2; flex-shrink: 0; }
+
+.security-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.7rem;
+  line-height: 1.2;
+}
+
+.security-text span  { color: var(--color-on-surface-variant, #6b7280); font-weight: 500; }
+.security-text strong { color: var(--color-on-surface, #1a1a2e); font-weight: 700; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .security-badge { display: none; }
+}
+
+@media (max-width: 480px) {
+  .admin-glass-panel { padding: 2rem 1.5rem; }
+  .login-title  { font-size: 1.25rem; }
+}
+

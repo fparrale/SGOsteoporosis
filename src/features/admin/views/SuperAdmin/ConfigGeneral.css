@@ -1,0 +1,26 @@
+.config-general { display: flex; flex-direction: column; gap: 24px; }
+.config-general__header h1 { font-size: 22px; font-weight: 700; color: #0f172a; margin: 0; }
+.config-general__header p { font-size: 14px; color: #64748b; margin: 4px 0 0; }
+.card { background: white; border-radius: 12px; border: 1px solid #e2e8f0; padding: 24px; }
+.card h2 { font-size: 16px; font-weight: 700; color: #0f172a; margin: 0 0 20px; }
+.params-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 13px; font-weight: 500; color: #374151; display: block; }
+.form-hint { font-size: 11px; color: #94a3b8; margin: 3px 0 0; }
+.form-input { padding: 10px 12px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 14px; outline: none; font-family: inherit; width: 100%; box-sizing: border-box; transition: border-color 0.15s; }
+.form-input:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,0.1); }
+.checkbox-group { margin-top: 20px; display: flex; align-items: center; gap: 12px; }
+.checkbox-group input[type="checkbox"] { width: 16px; height: 16px; accent-color: #7c3aed; }
+.checkbox-group label { font-size: 13px; font-weight: 500; color: #374151; margin-bottom: 0; cursor: pointer; }
+.dificultades-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+.dificultad-card { padding: 16px; border-radius: 10px; }
+.dificultad-card__label { font-size: 12px; font-weight: 700; margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+.dificultad-card__input-group { display: flex; align-items: center; gap: 6px; }
+.dificultad-card__input { padding: 8px 10px; border-radius: 8px; width: 80px; font-size: 20px; font-weight: 800; text-align: center; outline: none; box-sizing: border-box; transition: border-color 0.15s; }
+.btn-guardar-wrapper { display: flex; justify-content: flex-end; }
+.btn-save { display: flex; align-items: center; gap: 8px; color: white; border: none; border-radius: 8px; padding: 11px 22px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+.btn-save--idle { background: #7c3aed; }
+.btn-save--idle:hover { background: #6d28d9; }
+.btn-save--saved { background: #16a34a; }
+.btn-save:disabled { cursor: not-allowed; opacity: 0.7; }
+.loading-text { color: #64748b; padding: 24px; }

@@ -1,0 +1,52 @@
+.logs-sistema { display: flex; flex-direction: column; gap: 24px; }
+.logs-sistema__header h1 { font-size: 22px; font-weight: 700; color: #0f172a; margin: 0; }
+.logs-sistema__header p { font-size: 14px; color: #64748b; margin: 4px 0 0; }
+.filtros-bar { display: flex; gap: 12px; flex-wrap: wrap; }
+.search-wrapper { position: relative; flex: 1; min-width: 220px; }
+.search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none; }
+.search-input { width: 100%; padding: 10px 12px 10px 38px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 14px; outline: none; font-family: inherit; box-sizing: border-box; transition: border-color 0.15s; }
+.search-input:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,0.1); }
+.filter-select { padding: 10px 12px; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 14px; outline: none; font-family: inherit; min-width: 160px; transition: border-color 0.15s; }
+.filter-select:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,0.1); }
+.card { background: white; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; }
+.table-logs { width: 100%; border-collapse: collapse; }
+.table-logs thead tr { background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
+.table-logs th { padding: 12px 16px; font-size: 12px; font-weight: 600; color: #64748b; text-align: left; text-transform: uppercase; letter-spacing: 0.05em; }
+.table-logs td { padding: 13px 16px; }
+.table-logs tbody tr { border-bottom: 1px solid #f1f5f9; }
+.table-logs tbody tr:last-child { border-bottom: none; }
+.cell-fecha { font-size: 12px; color: #64748b; white-space: nowrap; }
+.cell-rol { font-size: 12px; font-weight: 600; color: #0f172a; }
+.cell-tabla { font-size: 12px; color: #64748b; font-family: monospace; }
+.cell-detalle { font-size: 13px; color: #374151; max-width: 300px; }
+.cell-ip { font-size: 12px; color: #94a3b8; font-family: monospace; }
+.badge-accion { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 99px; display: inline-block; }
+.badge-accion--crear { background: #dcfce7; color: #166534; }
+.badge-accion--eliminar { background: #fee2e2; color: #991b1b; }
+.badge-accion--editar { background: #fef9c3; color: #854d0e; }
+.badge-accion--importar { background: #dbeafe; color: #1d4ed8; }
+.badge-accion--default { background: #f1f5f9; color: #475569; }
+.cell-nombre { font-size: 13px; font-weight: 600; color: #0f172a; white-space: nowrap; }
+.empty-state { padding: 32px; text-align: center; color: #94a3b8; font-size: 14px; }
+.loading-text { padding: 24px; color: #64748b; }
+.logs-pagination { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-top: 1px solid #f1f5f9; background: #f8fafc; }
+.logs-pagination__info { font-size: 13px; color: #64748b; }
+.logs-pagination__btns { display: flex; gap: 8px; }
+.logs-pagination__btns button:disabled { opacity: 0.4; cursor: not-allowed; }
+.logs-page-btn { width: 34px; height: 34px; border-radius: 9px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; font-family: inherit; border: 1.5px solid #e4e9f2; background: #ffffff; color: #7a869a; }
+.logs-page-btn:hover:not(:disabled) { background: #eff4ff; color: #7c3aed; border-color: #c4b5fd; }
+.logs-page-btn--active { border-color: #7c3aed; background: #7c3aed; color: #fff; box-shadow: 0 2px 8px rgba(124,58,237,0.25); }
+.logs-page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.logs-pagination-dots { display: flex; align-items: center; justify-content: center; width: 28px; color: #94a3b8; font-size: 0.85rem; }
+
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-scroll .table-logs { min-width: 680px; }
+
+@media (max-width: 640px) {
+  .logs-sistema__header h1 { font-size: 18px; }
+  .filtros-bar { flex-direction: column; gap: 8px; }
+  .search-wrapper { min-width: unset; width: 100%; }
+  .filter-select { width: 100%; box-sizing: border-box; }
+  .logs-pagination { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .logs-pagination__btns { flex-wrap: wrap; gap: 6px; }
+}

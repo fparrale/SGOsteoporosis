@@ -1,0 +1,230 @@
+/* ── GameScreen ─────────────────────────────────────────────────────────── */
+.game-screen {
+  font-family: "Outfit", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8ecf8 100%);
+  padding: 20px;
+}
+
+.game-screen__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ── Cargando / Error ── */
+.game-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 12px;
+  text-align: center;
+}
+
+.game-loading__spinner {
+  animation: spin 0.8s linear infinite;
+  color: #3b6cf8;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.game-loading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.game-loading p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+}
+
+.game-error__btn {
+  margin-top: 12px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Outfit", sans-serif;
+  color: #fff;
+  background: #3b6cf8;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.game-error__btn:hover {
+  background: #1e4fd8;
+}
+
+/* ── Top bar ── */
+.game-screen__top-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.game-screen__progress {
+  flex: 1;
+  min-width: 150px;
+}
+
+.game-screen__progress-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.game-screen__progress-track {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.game-screen__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b6cf8, #6366f1);
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+
+.game-screen__top-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.game-screen__score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.game-screen__score-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #94a3b8;
+}
+
+.game-screen__score-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Player info ── */
+.game-screen__player-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1.5px solid #e8edf5;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(15, 31, 92, 0.04);
+}
+
+.game-screen__player-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e8edf5;
+}
+
+.game-screen__player-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.game-screen__player-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.game-screen__player-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.game-screen__player-age {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.game-screen__mode-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.game-screen__mode-badge.public {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.game-screen__mode-badge.room {
+  background: #eff6ff;
+  color: #3b6cf8;
+}
+
+.game-screen__streak {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ef4444;
+  background: #fef2f2;
+  padding: 4px 14px 4px 8px;
+  border-radius: 99px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .game-screen {
+    padding: 12px;
+  }
+
+  .game-screen__top-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .game-screen__top-right {
+    justify-content: space-between;
+  }
+
+  .game-screen__score-value {
+    font-size: 17px;
+  }
+}

@@ -1,0 +1,236 @@
+/* ─── Shared modal styles for SuperAdmin views ──────────────────────────── */
+
+.sa-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 31, 92, 0.35);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 16px;
+}
+
+.sa-modal {
+  background: #fff;
+  border-radius: 20px;
+  padding: 0;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 60px rgba(15, 31, 92, 0.22);
+  animation: saModalIn 0.2s ease;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+.sa-modal--lg { max-width: 560px; }
+
+@keyframes saModalIn {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0);    }
+}
+
+/* ─── Header ─────────────────────────────────────────────────── */
+.sa-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px 18px;
+  background: #ede9fe;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  flex-shrink: 0;
+}
+
+.sa-modal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sa-modal-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(124, 58, 237, 0.15);
+  color: #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sa-modal-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.sa-modal-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: #dc2626;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: 16px;
+  transition: background 0.15s;
+}
+.sa-modal-close:hover { background: #b91c1c; }
+
+/* ─── Body ────────────────────────────────────────────────────── */
+.sa-modal-body {
+  overflow-y: auto;
+  padding: 22px 28px;
+  flex: 1;
+}
+.sa-modal-body::-webkit-scrollbar { width: 5px; }
+.sa-modal-body::-webkit-scrollbar-track { background: #f8fafc; }
+.sa-modal-body::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+/* ─── Actions footer ──────────────────────────────────────────── */
+.sa-modal-actions {
+  display: flex;
+  gap: 10px;
+  padding: 16px 28px 22px;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  border-top: 1px solid #f1f5f9;
+}
+
+.sa-btn-cancel {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.sa-btn-cancel:hover { background: #e2e8f0; }
+
+.sa-btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #7c3aed;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 26px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(124, 58, 237, 0.25);
+  transition: background 0.2s, transform 0.1s;
+}
+.sa-btn-primary:hover { background: #6d28d9; transform: translateY(-1px); }
+.sa-btn-primary:active { transform: translateY(0); }
+.sa-btn-primary:disabled { background: #94a3b8; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* ─── Form fields inside .sa-modal-body ──────────────────────── */
+.sa-form-fields { display: flex; flex-direction: column; gap: 14px; }
+.sa-form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.sa-field { display: flex; flex-direction: column; gap: 6px; }
+
+.sa-field label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.02em;
+}
+
+.sa-field input,
+.sa-field select,
+.sa-field textarea {
+  width: 100%;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 13.5px;
+  color: #334155;
+  background: #fafbfe;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s, background 0.2s;
+}
+.sa-field input:focus,
+.sa-field select:focus,
+.sa-field textarea:focus {
+  border-color: #7c3aed;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+.sa-field textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
+
+.sa-field-hint { font-size: 11.5px; color: #94a3b8; margin-top: 3px; }
+
+/* password toggle */
+.sa-pass-wrap { position: relative; }
+.sa-pass-wrap input { padding-right: 42px; }
+.sa-pass-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+  padding: 0;
+  display: flex;
+}
+
+/* password strength meter */
+.sa-pass-strength { margin-top: 8px; display: flex; flex-direction: column; gap: 7px; padding: 0 5px; }
+
+.sa-strength-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sa-strength-seg {
+  height: 5px;
+  border-radius: 99px;
+  background: #e2e8f0;
+  transition: background 0.25s;
+}
+
+.seg--1 { background: #ef4444; }
+.seg--2 { background: #f97316; }
+.seg--3 { background: #22c55e; }
+
+.sa-pass-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rule--ok,
+.rule--fail {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.rule--ok  { color: #16a34a; }
+.rule--fail { color: #94a3b8; }
