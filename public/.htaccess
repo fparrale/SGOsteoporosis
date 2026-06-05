@@ -1,0 +1,20 @@
+# SPA fallback: cualquier ruta no-archivo sirve index.html (React Router)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.html$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    # script-src incluye 'unsafe-inline' porque Vite puede inyectar scripts inline en el build.
+    # Para producción con HTTPS, sustituir por nonces generados por el servidor.
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https://api.dicebear.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://franklinparrales.es; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; worker-src blob: 'self';"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+

@@ -1,0 +1,1 @@
+import"./rolldown-runtime-CMxvf4Kt.js";import{v as e}from"./vendor-charts-BHhTA6Wr.js";import{r as t}from"./vendor-motion-DhQRRysw.js";e();var n=t(),r=()=>(0,n.jsx)(`div`,{children:(0,n.jsx)(`h1`,{children:`Administradores`})});export{r as default};

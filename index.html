@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/SGOsteoporosis/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Osteoporosis App</title>
+    <meta name="author" content="Jhon Cueva" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- SPA redirect: restaura la ruta guardada por 404.html en GitHub Pages -->
+    <script>
+      (function() {
+        var redirect = sessionStorage.redirect;
+        if (redirect && redirect !== location.pathname + location.search) {
+          sessionStorage.removeItem('redirect');
+          // Asegura que la redirección mantenga el base /OsteoporosisApp/
+          var base = '/SGOsteoporosis';
+          var target = redirect;
+          // Si la ruta guardada no empieza con el base, se lo agregamos
+          if (target.indexOf(base) !== 0) {
+            target = base + target;
+          }
+          history.replaceState(null, '', target);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/SGOsteoporosis/assets/index-Cx4sTlLX.js"></script>
+    <link rel="modulepreload" crossorigin href="/SGOsteoporosis/assets/rolldown-runtime-CMxvf4Kt.js">
+    <link rel="modulepreload" crossorigin href="/SGOsteoporosis/assets/vendor-export-DmxKqVXF.js">
+    <link rel="modulepreload" crossorigin href="/SGOsteoporosis/assets/vendor-charts-BHhTA6Wr.js">
+    <link rel="modulepreload" crossorigin href="/SGOsteoporosis/assets/vendor-react-CSXp0GJk.js">
+    <link rel="modulepreload" crossorigin href="/SGOsteoporosis/assets/vendor-ui-P25Om6n6.js">
+    <link rel="modulepreload" crossorigin href="/SGOsteoporosis/assets/vendor-motion-DhQRRysw.js">
+    <link rel="modulepreload" crossorigin href="/SGOsteoporosis/assets/vendor-i18n-CKQtzoWh.js">
+    <link rel="stylesheet" crossorigin href="/SGOsteoporosis/assets/vendor-ui-BQ7ccufB.css">
+    <link rel="stylesheet" crossorigin href="/SGOsteoporosis/assets/index-CDvmAsJX.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
