@@ -4,6 +4,8 @@
 
 import { getAdminSession } from "../../auth/services/adminAuthService";
 
+const API_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/+$/, '');
+
 function authHeaders() {
   const { token } = getAdminSession();
   return {
@@ -12,7 +14,8 @@ function authHeaders() {
   };
 }
 
-async function apiRequest(url, options = {}) {
+async function apiRequest(path, options = {}) {
+  const url = `${API_URL}${path.replace(/^\/api/, '')}`;
   const res = await fetch(url, {
     ...options,
     headers: { ...authHeaders(), ...(options.headers ?? {}) },

@@ -8,7 +8,7 @@ export default defineConfig({
     exclude: ['@lottiefiles/dotlottie-react'],
   },
   // CAMBIA "_____" por el nombre EXACTO de tu repositorio en GitHub
-  base: '/OsteoporosisApp/',
+  base: '/SGOsteoporosis/',
   server: {
     headers: {
       'X-Content-Type-Options': 'nosniff',

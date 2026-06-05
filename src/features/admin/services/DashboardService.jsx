@@ -5,6 +5,8 @@
 
 import { getAdminSession } from "../../auth/services/adminAuthService";
 
+const API_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/+$/, '');
+
 /** Base URL de la API de avatares DiceBear. */
 const DICEBEAR_BASE = "https://api.dicebear.com/9.x/fun-emoji/svg";
 
@@ -31,7 +33,7 @@ export async function fetchDashboardMetrics(period = 'week', categoriaId = null)
   const params = new URLSearchParams({ period });
   if (categoriaId !== null) params.append('categoria_id', String(categoriaId));
 
-  const response = await fetch(`/api/admin/dashboard?${params}`, {
+  const response = await fetch(`${API_URL}/admin/dashboard?${params}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
 

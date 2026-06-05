@@ -1,6 +1,7 @@
 // ─── GameService.js ──────────────────────────────────────────────────────
 // Comunicación con el backend del módulo de juego.
-// Todas las llamadas van a /api/game/* (proxied por Vite → Apache).
+// En dev: Vite proxea /api → Apache. En prod: VITE_API_URL apunta al backend.
+const API_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/+$/, '');
 
 export const AVATARS = [
   { id: 1, name: 'Alegre',    url: 'https://api.dicebear.com/9.x/fun-emoji/svg?seed=Alegre' },
@@ -14,7 +15,7 @@ export const AVATARS = [
 // pin: string (6 caracteres) o '' para modo público
 // Retorna: { token, playerId, sessionId, config: { timePerQuestion, lives, totalQuestions, points } }
 export async function joinRoom(pin, { name, age, avatarId }) {
-  const res = await fetch('/api/game/join', {
+  const res = await fetch(`${API_URL}/game/join`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ pin, name, age: parseInt(age, 10), avatarId }),
@@ -28,7 +29,7 @@ export async function joinRoom(pin, { name, age, avatarId }) {
 // Token en Authorization: Bearer header — no queda en logs ni historial del navegador.
 // Retorna: { questions: [{ id, text, options, optionIds, correctIndex, category, difficulty, feedbackCorrect, feedbackIncorrect }] }
 export async function fetchQuestions(token, excludeIds = []) {
-  let url = '/api/game/questions';
+  let url = `${API_URL}/game/questions`;
   if (excludeIds.length > 0) url += `?exclude=${excludeIds.join(',')}`;
   const res = await fetch(url, {
     headers: { 'Authorization': `Bearer ${token}` },
@@ -42,7 +43,7 @@ export async function fetchQuestions(token, excludeIds = []) {
 // selectedOptionId: ID de opción en BD (null si se agotó el tiempo)
 // Retorna: { isCorrect, pointsEarned }
 export async function submitAnswer(token, questionId, selectedOptionId, timeSpent, currentStreak) {
-  const res = await fetch('/api/game/answer', {
+  const res = await fetch(`${API_URL}/game/answer`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -62,7 +63,7 @@ export async function submitAnswer(token, questionId, selectedOptionId, timeSpen
 // Token en Authorization: Bearer header — no queda en logs ni historial del navegador.
 // Retorna: { leaderboard: [{ name, score, precision, avatar }] }
 export async function fetchLeaderboard(token) {
-  const res = await fetch('/api/game/leaderboard', {
+  const res = await fetch(`${API_URL}/game/leaderboard`, {
     headers: { 'Authorization': `Bearer ${token}` },
   });
   const data = await res.json();
@@ -74,7 +75,7 @@ export async function fetchLeaderboard(token) {
 // Marca la partida como finalizada y actualiza estadísticas globales.
 export async function finishGame(token) {
   try {
-    await fetch('/api/game/finish', {
+    await fetch(`${API_URL}/game/finish`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token }),

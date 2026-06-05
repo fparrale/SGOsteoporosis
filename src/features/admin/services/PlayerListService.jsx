@@ -4,6 +4,8 @@
 
 import { getAdminSession } from "../../auth/services/adminAuthService";
 
+const API_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/+$/, '');
+
 const DICEBEAR_BASE = "https://api.dicebear.com/9.x/fun-emoji/svg";
 
 export function getAvatarUrl(seed) {
@@ -15,7 +17,8 @@ function authHeaders() {
   return { Authorization: `Bearer ${token}` };
 }
 
-async function apiGet(url) {
+async function apiGet(path) {
+  const url = `${API_URL}${path.replace(/^\/api/, '')}`;
   const res = await fetch(url, { headers: authHeaders() });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
